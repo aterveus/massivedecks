@@ -16,9 +16,10 @@ services:
   client:
     build:
       context: "./client/dev"
+    env_file: stack.env
     user: "${USER_ID:?err}:${GROUP_ID:?err}"
     ports:
-      - "127.0.0.1:8080:8080/tcp"
+      - "3005:8080/tcp"
     volumes:
       - ./client:/md/client
     networks:
